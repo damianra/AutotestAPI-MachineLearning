@@ -20,7 +20,7 @@ Parámetros de la consulta:<br>
 -"difRes" = Dificultad respiratoria<br>
 -"pacRiesgo" = Paciente de riesgo (Mayores a 60 años, afecciones como inmunodepresión o enfermedades crónicas cardíacas, pulmonares, renales, hepáticas, sanguíneas o metabólicas (por ejemplo, la diabetes)<br>
 <br>
-Todos los parámetros
+Todos los parámetros excepto la temperatura son valores 1 o 0, siendo 1 la respuesta SI y 0 la respuesta NO.
 <br>
 <br>
 
