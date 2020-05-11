@@ -96,6 +96,13 @@ def autotest():
                    })
 
 
+@app.route('/data')
+def data():
+    df = pd.read_csv('autotest.csv')
+    json = df.to_json()
+    return json
+
+
 if __name__ == '__main__':
 
     app.run(debug=False)
