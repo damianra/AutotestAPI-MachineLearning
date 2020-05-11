@@ -60,6 +60,8 @@ def validacionAutotest(consulta):
 
 @app.route('/autotest', methods=['POST'])
 def autotest():
+    file = open(modelName)
+    clf = pickle.load(open(modelName, 'rb'))
     df = pd.read_csv('autotest.csv')
     consulta = request.get_json()
     lista = validacionAutotest(consulta)
@@ -84,7 +86,5 @@ def autotest():
 
 
 if __name__ == '__main__':
-    file = open(modelName)
-    clf = pickle.load(open(modelName, 'rb'))
 
     app.run(debug=False)
