@@ -82,7 +82,18 @@ def autotest():
     # df2 = pd.DataFrame(data)
     df = df.append([data])
     df.to_csv('autotest.csv', mode='w', index=False)
-    return jsonify({'pred': pred[0]})
+    return jsonify({
+                    'Temperatura': lista[0],
+                    'Zona de riesgo': lista[1],
+                    'Contacto con Algun enfermo': lista[2],
+                    'Cansancio': lista[3],
+                    'Perd. Olfato': lista[4],
+                    'Perd. Gusto': lista[5],
+                    'Tos o Dolor garganta': lista[6],
+                    'Dificultad Resp.': lista[7],
+                    'Situacion de Riesgo': lista[8],
+                    'Clasificacion': pred[0]
+                   })
 
 
 if __name__ == '__main__':
