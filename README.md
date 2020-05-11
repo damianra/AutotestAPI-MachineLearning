@@ -10,15 +10,15 @@ El cual recibe por método POST los datos de la consulta.
 <br>
 <br>
 Parámetros de la consulta:<br>
--"temp" = Temperatura (float)
--"zona" = Zona de Riesgo
--"contacto" = Contacto con alguna persona infectada
--"cansancio" = Cansancio
--"perOlf" = Repentina perdida de olfato
--"perGus" = Repentina perdida del gusto
--"tos" = Tos o dolor de garganta
--"difRes" = Dificultad respiratoria
--"pacRiesgo" = Paciente de riesgo (Mayores a 60 años, afecciones como inmunodepresión o enfermedades crónicas cardíacas, pulmonares, renales, hepáticas, sanguíneas o metabólicas (por ejemplo, la diabetes)
+-"temp" = Temperatura (float)<br>
+-"zona" = Zona de Riesgo<br>
+-"contacto" = Contacto con alguna persona infectada<br>
+-"cansancio" = Cansancio<br>
+-"perOlf" = Repentina perdida de olfato<br>
+-"perGus" = Repentina perdida del gusto<br>
+-"tos" = Tos o dolor de garganta<br>
+-"difRes" = Dificultad respiratoria<br>
+-"pacRiesgo" = Paciente de riesgo (Mayores a 60 años, afecciones como inmunodepresión o enfermedades crónicas cardíacas, pulmonares, renales, hepáticas, sanguíneas o metabólicas (por ejemplo, la diabetes)<br>
 <br>
 Todos los parámetros
 <br>
