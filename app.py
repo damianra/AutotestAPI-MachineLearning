@@ -6,7 +6,7 @@ import sklearn
 modelName = 'AutotestModel.sav'
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'snvu124qchmf9483rcrc2er15q3f1ado13403'
+app.config['SECRET_KEY'] = 'SECRET_KEY'
 app.config['JSON_SORT_KEYS'] = False
 
 
