@@ -36,5 +36,4 @@ y si el valor<=0 se modifica a 0.
 <br>
 <br>
 <br>
-<b>Nota:</b> Falta agregar condición para que los valores no sean nulos.
 
