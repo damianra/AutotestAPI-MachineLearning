@@ -1,4 +1,5 @@
 # AutotestAPI-MachineLearning
+Github creación del modelo: <a href="https://github.com/damianra/Autotest-Covid19-ML">Link</a>
 <br>
 Aplicación flask con un solo endpoint.
 <br>
@@ -25,7 +26,7 @@ Todos los parámetros excepto la temperatura son valores 1 o 0, siendo 1 la resp
 <br>
 
 La API no es oficial.
-Con los datos compartidos llega a un 83% de efectividad.
+Con los datos compartidos llega a un 93% de efectividad.
 Se busca que al compartirla obtener más pruebas para aumentar el acierto del algoritmo.
 
 Se utilizó el modelo de aprendizaje supervisado de Sklearn KNeighborsClassifier.<br>
