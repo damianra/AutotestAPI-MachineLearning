@@ -1,0 +1,198 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+<h1>Autotest Covid19</h1>
+  {% if dic: %}
+  <div class="alert alert-success" role="alert">
+  <strong>Reultado del test: {{dic['Clasificacion']}}</strong><br>
+    Datos Ingresados:<br>
+    Temperatura : {{dic['Clasificacion']}}<br>
+    Zona de riesgo: {{dic['Zona de riesgo']}}<br>
+    Contacto con Algun enfermo: {{dic['Contacto con Algun enfermo']}}<br>
+    Cansancio: {{dic['Cansancio']}}<br>
+    Perd. Olfato: {{dic['Perd. Olfato']}}<br>
+    Perd. Gusto: {{dic['Perd. Gusto']}}<br>
+    Tos o Dolor garganta: {{dic['Tos o Dolor garganta']}}<br>
+    Dificultad Resp.: {{dic['Dificultad Resp.']}}<br>
+    Paciente de Riesgo: {{dic['Situacion de Riesgo']}}<br>
+</div>
+  {% endif %}
+<form action="/test" method="POST">
+  <fieldset>
+    <div class="form-group row">
+  <label for="temp">Temperatura</label>
+  <div class="col-10">
+    <input class="form-control" type="number" value="37" id="temp" name="temp" step="0.01">
+  </div>
+</div>
+    <div>
+      <legend>Estuvo en alguna zona denominada zona de riesgo?</legend>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="zona" id="zona1" value="1">
+          <label class="form-check-label" for="zona1">
+            Si
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="zona" id="zona2" value="0">
+          <label class="form-check-label" for="zona2">
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div>
+      <legend>Estuvo en contacto con alguna persona con COVID19?</legend>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="contacto" id="contacto1" value="1">
+          <label class="form-check-label" for="contacto1">
+            Si
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="contacto" id="contacto2" value="0">
+          <label class="form-check-label" for="contacto2">
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div>
+      <legend>Tiene cansancio o dolor corporal?</legend>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="cansancio" id="can1" value="1">
+          <label class="form-check-label" for="can1">
+            Si
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="cansancio" id="can2" value="0">
+          <label class="form-check-label" for="can2">
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+    <fieldset>
+    <div>
+      <legend>Ha tenido una repentina perdida del olfato?</legend>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="perOlf" id="perOlf1" value="1">
+          <label class="form-check-label" for="perOlf1">
+            Si
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="perOlf" id="perOlf2" value="0">
+          <label class="form-check-label" for="perOlf2">
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+  <div>
+        <legend>Ha tenido una repentina perdida del gusto?</legend>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="perGus" id="perGus1" value="1">
+          <label class="form-check-label" for="perGus1">
+            Si
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="perGus" id="perGus2" value="0">
+          <label class="form-check-label" for="perGus2">
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+    <fieldset>
+    <div>
+        <legend>Tiene tos o dolor de garganta?</legend>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="tos" id="tos1" value="1">
+          <label class="form-check-label" for="tos1">
+            Si
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="tos" id="tos2" value="0">
+          <label class="form-check-label" for="tos2">
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+  <div>
+        <legend>Tiene dificultad respiratoria?</legend>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="difRes" id="difRes1" value="1">
+          <label class="form-check-label" for="difRes1">
+            Si
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="difRes" id="difRes2" value="0">
+          <label class="form-check-label" for="difRes2">
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+    <fieldset>
+    <div>
+        <legend>Es usted un denominado paciente de riesgo (+65, inmunodepresión o enfermedades crónicas cardíacas, pulmonares, renales, hepáticas, sanguíneas o metabólicas, embarazadas)?</legend>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pacRiesgo" id="pacRiesgo1" value="1">
+          <label class="form-check-label" for="pacRiesgo1">
+            Si
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pacRiesgo" id="pacRiesgo2" value="0">
+          <label class="form-check-label" for="pacRiesgo2">
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div>
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </div>
+</form>
+</div>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</html>
