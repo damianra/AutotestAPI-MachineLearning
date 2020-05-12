@@ -60,7 +60,7 @@ def validacionAutotest(consulta):
     return l
 
 
-@app.route('/autotest', methods=['GET'])
+@app.route('/autotest', methods=['POST'])
 def autotest():
     clf = pickle.load(open(modelName, 'rb'))
     df = pd.read_csv('autotest.csv')
