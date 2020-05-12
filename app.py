@@ -1,19 +1,15 @@
-# Librería pickle nos permite abrir nuestro modelo entrenado y crear un objeto.
 import pickle
 import pandas as pd
 from flask import Flask, jsonify, request
-# Es necesario tener instalada e importada la librería de Sklearn.
 import sklearn
 
-# Nombre del modelo en la carpeta
 modelName = 'AutotestModel.sav'
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'SECRET_KEY'
+app.config['SECRET_KEY'] = 'snvu124qchmf9483rcrc2er15q3f1ado13403'
 app.config['JSON_SORT_KEYS'] = False
 
 
-# Validación de números mayores o menores a los aceptados
 def validacionAutotest(consulta):
     temperatura = float(consulta['temp'])
     zonaRiesgo = None
@@ -62,13 +58,8 @@ def validacionAutotest(consulta):
     return l
 
 
-# Ruta del autotest
-# Abre el archivo del modelo y lo carga con pickle
-# Válida los datos, realiza la predicción y antes de devolver la consulta
-# guarda los resultados en un archivo csv.
-@app.route('/autotest', methods=['POST'])
+@app.route('/autotest', methods=['GET'])
 def autotest():
-    file = open(modelName)
     clf = pickle.load(open(modelName, 'rb'))
     df = pd.read_csv('autotest.csv')
     consulta = request.get_json()
@@ -91,21 +82,19 @@ def autotest():
     df = df.append([data])
     df.to_csv('autotest.csv', mode='w', index=False)
     return jsonify({
-                    'Temperatura': lista[0],
-                    'Zona de riesgo': lista[1],
-                    'Contacto con Algun enfermo': lista[2],
-                    'Cansancio': lista[3],
-                    'Perd. Olfato': lista[4],
-                    'Perd. Gusto': lista[5],
-                    'Tos o Dolor garganta': lista[6],
-                    'Dificultad Resp.': lista[7],
-                    'Situacion de Riesgo': lista[8],
-                    'Clasificacion': pred[0]
-                   })
+        'Temperatura': lista[0],
+        'Zona de riesgo': lista[1],
+        'Contacto con Algun enfermo': lista[2],
+        'Cansancio': lista[3],
+        'Perd. Olfato': lista[4],
+        'Perd. Gusto': lista[5],
+        'Tos o Dolor garganta': lista[6],
+        'Dificultad Resp.': lista[7],
+        'Situacion de Riesgo': lista[8],
+        'Clasificacion': pred[0]
+    })
 
 
-
-# Sirve para ver los resultados del csv con todos los autotest realizados.
 @app.route('/data')
 def data():
     df = pd.read_csv('autotest.csv')
