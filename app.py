@@ -1,13 +1,11 @@
 import pickle
 import pandas as pd
-from flask_cors import CORS
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 import sklearn
 
 modelName = 'AutotestModel.sav'
 
-app = Flask(__name__)
-CORS(app)
+app = Flask(__name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'snvu124qchmf9483rcrc2er15q3f1ado13403'
 app.config['JSON_SORT_KEYS'] = False
 
@@ -102,6 +100,48 @@ def data():
     df = pd.read_csv('autotest.csv')
     json = df.to_json()
     return json
+
+
+@app.route('/')
+@app.route('/index')
+def index():
+
+    return render_template('index.html')
+
+
+@app.route('/test', methods=['POST'])
+def test():
+    temp = request.form['temp']
+    zona = request.form['zona']
+    contacto = request.form['contacto']
+    cansancio = request.form['cansancio']
+    perOlf = request.form['perOlf']
+    perGus = request.form['perGus']
+    tos = request.form['tos']
+    difRes = request.form['difRes']
+    pacRiesgo = request.form['pacRiesgo']
+    clf = pickle.load(open(modelName, 'rb'))
+    df = pd.read_csv('autotest.csv')
+    id = int(df.tail(1)['id'] + 1)
+    pred = clf.predict([[float(temp),int(zona),int(contacto),int(cansancio),int(perOlf), int(perGus), int(tos), int(difRes), int(pacRiesgo)]])
+    dic = {
+            'id': id,
+            'Temperatura': float(temp),
+            'Zona de riesgo': int(zona),
+            'Contacto con Algun enfermo': int(contacto),
+            'Cansancio': int(cansancio),
+            'Perd. Olfato': int(perOlf),
+            'Perd. Gusto': int(perGus),
+            'Tos o Dolor garganta': int(tos),
+            'Dificultad Resp.': int(difRes),
+            'Situacion de Riesgo': int(pacRiesgo),
+            'Clasificacion': pred[0]
+        }
+    df = df.append([dic])
+    print(dic)
+    df.to_csv('autotest.csv', mode='w', index=False)
+
+    return render_template('index.html', dic=dic)
 
 
 if __name__ == '__main__':
