@@ -1,11 +1,13 @@
 import pickle
 import pandas as pd
+from flask_cors import CORS
 from flask import Flask, jsonify, request
 import sklearn
 
 modelName = 'AutotestModel.sav'
 
 app = Flask(__name__)
+CORS(app)
 app.config['SECRET_KEY'] = 'snvu124qchmf9483rcrc2er15q3f1ado13403'
 app.config['JSON_SORT_KEYS'] = False
 
