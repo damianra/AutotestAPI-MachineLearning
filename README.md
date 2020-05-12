@@ -37,5 +37,6 @@ En la API se hacen comparaciones si el valor>=1 se modifica a 1 <br>
 y si el valor<=0 se modifica a 0.
 <br>
 <br>
+<p>Desarrollador: Damián Ramirez <a href="https://www.linkedin.com/in/damian-ramirez-677488172">LinkedIn</a></p>
 <br>
 
