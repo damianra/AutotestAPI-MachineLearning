@@ -1,6 +1,7 @@
 # AutotestAPI-MachineLearning
 <b>Github creación del modelo:</b> <a href="https://github.com/damianra/Autotest-Covid19-ML">Link</a><br>
-<b>Colab Ejemplo de uso de la API:</b> <a href="https://colab.research.google.com/drive/172Kg7g5YBSpsGYkR9ztBMgiZB-r7mx9e">Link</a>
+<b>Colab Ejemplo de uso de la API:</b> <a href="https://colab.research.google.com/drive/172Kg7g5YBSpsGYkR9ztBMgiZB-r7mx9e">Link</a><br>
+<b>Link de la API:</b> <a href="https://autotest-ml.herokuapp.com/">Link</a>
 <br>
 Aplicación flask con un solo endpoint.
 <br>
