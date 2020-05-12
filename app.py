@@ -66,7 +66,7 @@ def validacionAutotest(consulta):
 # Abre el archivo del modelo y lo carga con pickle
 # Válida los datos, realiza la predicción y antes de devolver la consulta
 # guarda los resultados en un archivo csv.
-@app.route('/autotest', methods=['POST'])
+@app.route('/autotest', methods=['GET'])
 def autotest():
     file = open(modelName)
     clf = pickle.load(open(modelName, 'rb'))
