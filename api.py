@@ -43,7 +43,7 @@ class ApiTest(Resource):
 
         return jsonify({
             'data': dic,
-            'disclaimer': 'El autotest no es oficial, es una recreacion con machine learning https://github.com/damianra/Autotest-Covid19-ML'
+            'disclaimer': 'El autotest no es oficial, es un analisis de clasificacion con machine learning https://github.com/damianra/Autotest-Covid19-ML'
         })
 
 
